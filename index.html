@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paint app</title>
+    <style>
+        .container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 10px;
+        }
+        #canvas{
+           border:2px solid red ;
+        }
+        .left{
+            display: grid;
+            place-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="canvas">
+    <canvas id="canvas" width="600px"></canvas>
+</div>
+<div class="left">
+    <input type="color" name="" id="color">
+    <button id="undo">undo</button>
+    <button id="clear">clear all</button>
+    <input type="range" name="" min="1" max="20" id="">
+    <input type="file" name="file" id="file" accept="image/png image/jpg">
+    <label for="text" id="label">file name</label><input type="text" name="text" id="text">
+    <label for="file type">png</label><input type="radio" name="filetype" id="png" value="png">
+    <label for="file type">jpeg</label><input type="radio" name="filetype" id="jpg" value="jpeg"><br>
+    <button onclick="download()">download</button>
+</div>
+</div>
+<script src="main.js"></script>
+   
+                
+              
+</body>
+</html>
