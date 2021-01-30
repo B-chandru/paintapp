@@ -82,15 +82,21 @@ function stop(event){
     }
 
 }
+// for downloading the images
+function download(){
+    var fileformate
+    for (let i= 0; i < filetype.length; i++) {
+    if (filetype[i].checked) {
+        fileformate=filetype[i].value;       
+    }
+}
+    canvas.toBlob((blob)=>{
+        const a=document.createElement("a");
+        document.body.append(a);
+        a.download =`${input.value}.${fileformate}`;
+        a.href=URL.createObjectURL(blob);
+        a.click();
+        a.remove();
+    });          
+}
 
-
-// function download(){
-//         var fileformate
-//         for (let i= 0; i < filetype.length; i++) {
-//         if (filetype[i].checked) {
-//             fileformate=filetype[i].value;
-//         }
-//         }
-        
-           
-// }
