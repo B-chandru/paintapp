@@ -2,7 +2,6 @@ const canvas=document.getElementById("canvas");
 const ctx=canvas.getContext("2d");
 const clear=document.getElementById("clear");
 const undo=document.getElementById("undo")
-const col=document.getElementById("color")
 const input=document.getElementById("text")
 var filetype=document.getElementsByName("filetype");
 
@@ -15,6 +14,11 @@ clear.addEventListener("click",()=>{
     index = -1;
 
 })
+// for changing the color
+function paint(elem){
+    ctx.fillStyle =elem.value; 
+}
+
 
 undo.addEventListener("click",()=>{
     if(index <=0){
@@ -36,7 +40,6 @@ canvas.height=550;
 ctx.fillStyle="white";
 ctx.fillRect(0,0,canvas.width,canvas.height);
 
-let color="red";
 let width="2";
 let is_draw = false;
 let path=[];
@@ -60,7 +63,7 @@ function start(event) {
 function draw(event){
     if(is_draw){
         ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
-        ctx.strokeStyle = color;
+        ctx.strokeStyle = ctx.fillStyle ;
         ctx.lineWidth=width;
         ctx.lineCap="round";
         ctx.lineJoin="round";
@@ -99,4 +102,9 @@ function download(){
         a.remove();
     });          
 }
+// for changing the brush size
+function brush(size){
+    width= size;
+}
+
 
