@@ -11,12 +11,65 @@
         grid-gap: 10px;
         }
         #canvas{
-           border:2px solid red ;
+           border:2px solid grey ;
         }
         .left{
             display: grid;
             place-items: center;
+            height: 300px;
         }
+        label{
+            font-family: system-ui;
+            text-transform: capitalize;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    .download{
+        height: 32px;
+    background:#4caf50;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    font-size: 19px;
+    }
+    .download:hover{
+        letter-spacing: 2px;
+    }
+    #clear{
+        height: 32px;
+    background:#F44336;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    font-size: 19px;
+    }
+    #clear:hover{
+        background-color: #C62828;
+    }
+    #undo{
+    height: 32px;
+    background:#03A9F4;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    font-size: 19px;
+    }
+    #undo:hover{
+      background-color: #246aec;
+    }
+    #color{
+        width: 100px;
+        border-radius: 2px;
+    }
     </style>
 </head>
 <body>
@@ -25,16 +78,16 @@
     <canvas id="canvas" width="600px"></canvas>
 </div>
 <div class="left">
-    <input type="color" name="" id="color">
-    <button id="undo">undo</button>
-    <button id="clear">clear all</button>
-    <input type="range" name="" min="1" max="20" id="">
-    <input type="file" name="file" id="file" accept="image/png image/jpg">
+    <label for="color">select your color</label><br>
+<input type="color"  onchange="paint(this)" name="color"id="color" value="#ff0000"><br>
+    <button id="undo">undo</button><br>
+    <button id="clear">clear all</button><br>
+    <input type="range" min="5" value="10" max="40" step="5" onchange="brush(this.value)"><br>
     <label for="text" id="label">file name</label><input type="text" name="text" id="text">
     <label for="file type">png</label><input type="radio" name="filetype" id="png" value="png">
     <label for="file type">jpeg</label><input type="radio" name="filetype" id="jpg" value="jpeg"><br>
-    <button onclick="download()">download</button>
-</div>
+ <button class="download" onclick="download()">download</button>
+        </div>
 </div>
 <script src="main.js"></script>
    
